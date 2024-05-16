@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <!-- for文を用いてlistを表形式で出力 -->
+    <h1>{{title}}</h1>
+    <table border="1">
+        <tr>
+            {% for item in schema %}
+            <th>{{item}}</th>
+            {% endfor %}
+        </tr>
+        {% for tuple in table %}
+        <tr>
+            {% for item in tuple %}
+            <!-- <td>{{tuple[2]|date}}</td> -->
+            <!-- もし、Days以外の場合はそのまま表示して、Daysの場合は<td>{{tuple[2]|date}}</td>を表示させる -->
+            {% if loop.index == 5 %}
+            <td>{{item|date}}</td>
+            {% else %}
+            <td>{{item}}</td>
+            {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+</body>
+
+</html>
