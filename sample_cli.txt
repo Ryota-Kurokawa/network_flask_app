@@ -1,1 +1,2 @@
 run: pipenv run python3 XXX.py
+run: pipenv run python3 XXX.py

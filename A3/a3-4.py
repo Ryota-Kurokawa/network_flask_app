@@ -19,12 +19,15 @@ def table():
     
     # 表の属性値のリスト
     # return render_template("sample3-2.html", title="教員名簿", schema=schema, table=table)
-    return render_template("a3-3.html", title="教員名簿", schema=schema, table=table)
+    return render_template("a3-4.html", title="教員名簿", schema=schema, table=table)
 
-@app.template_filter("date")
-def days_left(date):
-    today = datetime.date.today()
-    return (date - today).days
+# @app.template_filter("date")
+@app.context_processor
+def days_left_Processer():
+    def days_left(date):
+        today = datetime.date.today()
+        return (date - today).days
+    return dict(days_left=days_left)
 
 if __name__ == "__main__":
     app.debug = True

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>{{title}}</title>
+</head>
+
+<body>
+  <!-- for文を用いてlistを表形式で出力 -->
+  <!-- <h1>{{title}}</h1>
+    <table border="1">
+        <tr>
+            {% for item in schema %}
+            <th>{{item}}</th>
+            {% endfor %}
+        </tr>
+        {% for table in tuple %}
+        <tr>
+            {% for tuple in item %}
+            <!-- {% if loop.index == 5 %} -->
+  <!-- <td>{{days_left(days_left|item)}}</td> -->
+  <!-- {% else %} -->
+  <!-- <td>{{days_left(days_left|tuple)}}</td> -->
+  <!-- {% endif %} -->
+  <!-- {% endfor %} -->
+  <!-- </tr> -->
+  <!-- {% endfor %} -->
+  <h1>{{title}}</h1>
+  <table border="1">
+    <tr>
+      {% for item in schema %}
+      <th>{{item}}</th>
+      {% endfor %}
+      <th>当日までの日数</th>
+    </tr>
+    {% for tuple in table %}
+    <tr>
+      {% for item in tuple %}
+      <td>{{item}}</td>
+      {% endfor %}
+      <td>{{days_left(tuple[2])}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+
+</html>

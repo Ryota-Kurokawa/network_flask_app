@@ -14,7 +14,7 @@ def table():
             [5, "りんごfes5", 2024, "青森"]
             ]
     # 表の属性値のリスト
-    return render_template("sample3-2.html", title="教員名簿", schema=schema, table=table)
+    return render_template("a3-2.html", title="教員名簿", schema=schema, table=table)
 
 
 if __name__ == "__main__":
