@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{title}}</title>
+    <style>
+      .new-date {
+        background-color: green;
+      }
+      .past-date {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>{{title}}</h1>
+    <table border="1">
+      <tr>
+        {% for item in schema %}
+        <th>{{item}}</th>
+        {% endfor %}
+      </tr>
+      {% for row in table %}
+      <tr
+        class="{% if row[0]|datetimeformat < current_date|datetimeformat %}past-date{% else %}new-date{% endif %}"
+      >
+        {% for item in row %}
+        <td>{{item}}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
