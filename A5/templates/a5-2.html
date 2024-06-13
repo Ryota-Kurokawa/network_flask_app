@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <style>
+        .past-event {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>{{title}}</h1>
+    <table border="1">
+        <tr>
+            {% for item in schema %}
+            <th>{{item}}</th>
+            {% endfor %}
+        </tr>
+        {% for tuple in table %}
+        {% if tuple[2] < today %}
+        <tr class="past-event">
+        {% else %}
+        <tr>
+        {% endif %}
+            {% for item in tuple %}
+            <td>{{item}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
